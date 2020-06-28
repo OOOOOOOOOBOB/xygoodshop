@@ -4,7 +4,6 @@
 
     <div class="forgot">
 
-
         <van-nav-bar title="忘记密码" left-arrow @click-left="onClickLeft"/>
         <van-form @submit="onSubmit" class="forgot-content">
             <van-field

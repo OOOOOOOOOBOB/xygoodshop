@@ -5,14 +5,6 @@
         <div class="header">
             <van-search placeholder="请输入搜索关键词" @click="handSearchClick"/>
         </div>
-
-        <div class="header">
-            <van-search placeholder="请输入搜索关键词" @click="handSearchClick"/>
-        </div>
-
-        <div class="ee">
-            211212
-        </div>
         <div class="home-content">
             <van-pull-refresh class="content"
                               v-model="refreshing"
