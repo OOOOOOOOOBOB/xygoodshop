@@ -8,16 +8,25 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
+    meta:{
+      TabBarShow: true,
+    },
     component: () => import('@/views/home/Home.vue')
   },
   {
     path: '/home',
     name: 'Home',
+    meta:{
+      TabBarShow: true,
+    },
     component: () => import('@/views/home/Home.vue')
   },
   {
     path: '/category',
     name: 'Category',
+    meta:{
+      TabBarShow: true,
+    },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -26,6 +35,9 @@ Vue.use(VueRouter)
   {
     path: '/personal',
     name: 'Personal',
+    meta:{
+      TabBarShow: true,
+    },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -34,6 +46,9 @@ Vue.use(VueRouter)
   {
     path: '/signed',
     name: 'Signed',
+    meta:{
+      TabBarShow: true,
+    },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -77,11 +92,17 @@ Vue.use(VueRouter)
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
+    meta:{
+      TabBarShow: false,
+    },
     component: () => import('@/views/details/Details.vue')
   },
   {
     path: '/cart',
     name: 'Cart',
+    meta:{
+      TabBarShow: true,
+    },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
