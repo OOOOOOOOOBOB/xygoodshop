@@ -5,16 +5,20 @@
     <div class="personal">
         <!--展示头部-->
         <div class="bg">
-            <div class="set-up"><img src="../../assets/img/personal/shezhi.png"></div>
+            <!-- <div class="set-up"><img src="../../assets/img/personal/shezhi.png"></div> -->
+            <!-- 设置图标 -->
+            <div class="set-up"><van-icon name="setting-o" size="1.5rem" /></div>
+            <!-- 消息图标 -->
+            <div class="set-chat"><van-icon name="chat-o" size="1.5rem" /></div>
             <div class="personal-desc">
                 <div class="portrait" @click="$router.push('/personal/details')"><img src="../../assets/img/personal/touxiang.png"></div>
                 <div class="text" @click="$router.push('/login')">点击登录</div>
-                <div class="sign-in" @click="$router.push('/signed')"><img src="../../assets/img/personal/qiandao.png"></div>
+                <!-- <div class="sign-in" @click="$router.push('/signed')"><img src="../../assets/img/personal/qiandao.png"></div> -->
             </div>
         </div>
         <!--展示content-->
         <div class="personal-content">
-            <div class="information">
+            <!-- <div class="information">
                 <div class="money item">
                     <div class="number">0</div>
                     <div class="text">金额</div>
@@ -27,9 +31,27 @@
                     <div class="number">0</div>
                     优惠券
                 </div>
+            </div> -->
+            <div class="information">
+                <div class="goods item">
+                    <div class="number">0</div>
+                    <div class="text">商品关注</div>
+                </div>
+                <div class="shop item">
+                    <div class="number">0</div>
+                    店铺关注
+                </div>
+                <div class="like item">
+                    <div class="number">0</div>
+                    喜欢的内容
+                </div>
+                <div class="browse item">
+                    <div class="number">0</div>
+                    浏览记录
+                </div>
             </div>
             <div class="my-order">
-                <van-cell title="我的订单" is-link/>
+                <!-- <van-cell title="我的订单" is-link/> -->
                 <van-grid :column-num="5">
                     <van-grid-item v-for="(item, index) in list" :key="index">
                         <div class="img"><img :src="item.icon"></div>
@@ -52,9 +74,9 @@
 
 <script>
     import Vue from 'vue';
-    import { Cell, CellGroup , Grid , GridItem } from 'vant';
+    import { Cell, CellGroup , Grid , GridItem, Icon } from 'vant';
 
-    Vue.use(Cell).use(CellGroup).use(Grid).use(GridItem)
+    Vue.use(Cell).use(CellGroup).use(Grid).use(GridItem).use(Icon )
     export default {
         //个人
         name: "Personal",
@@ -62,10 +84,10 @@
             return {
                 list: [
                     {name: '待付款', icon:  require('../../assets/img/personal/qiandao.png')},
-                    {name: '待付款', icon:  require('../../assets/img/personal/qiandao.png')},
-                    {name: '待付款', icon:  require('../../assets/img/personal/qiandao.png')},
-                    {name: '待付款', icon:  require('../../assets/img/personal/qiandao.png')},
-                    {name: '待付款', icon:  require('../../assets/img/personal/qiandao.png')}
+                    {name: '待收货', icon:  require('../../assets/img/personal/qiandao.png')},
+                    {name: '待评价', icon:  require('../../assets/img/personal/qiandao.png')},
+                    {name: '退还/售后', icon:  require('../../assets/img/personal/qiandao.png')},
+                    {name: '我的订单', icon:  require('../../assets/img/personal/qiandao.png')}
                 ],
                 items: [
                     {name: '我的评价', icon:  require('../../assets/img/personal/qiandao.png')},
@@ -109,12 +131,19 @@
                 width: 20px;
                 height: 20px;
                 position: relative;
-                left: 340px;
+                left: 310px;
                 top: 10px;
-                img{
-                    width: 100%;
-                    height: 100%;
-                }
+                // img{
+                //     width: 100%;
+                //     height: 100%;
+                // }
+            }
+            .set-chat{
+                width: 20px;
+                height: 20px;
+                position: relative;
+                left: 345px;
+                top: -10px;
             }
             .personal-desc{
                 position: relative;
