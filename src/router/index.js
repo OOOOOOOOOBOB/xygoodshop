@@ -140,6 +140,38 @@ Vue.use(VueRouter)
     // which is lazy-loaded when the route is visited.
     component: () => import('@/views/mine/Mine.vue')
   },
+  {
+    path: '/mine/enroll',
+    name: 'Enroll',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('@/views/mine/enroll/Enroll.vue')
+  },
+  {
+    path: '/mine/about',
+    name: 'About',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('@/views/mine/about/About.vue')
+  },
+  {
+    path: '/mine/concerning',
+    name: 'Concerning',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('@/views/mine/concerning/Concerning.vue')
+  },
+  {
+    path: '/mine/settings',
+    name: 'Settings',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('@/views/mine/settings/Settings.vue')
+  },
 ]
 
 const router = new VueRouter({

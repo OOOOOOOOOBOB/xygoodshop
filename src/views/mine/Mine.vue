@@ -7,12 +7,12 @@
         <div class="mine-head">
             <!-- <div class="set-up"><img src="../../assets/img/personal/shezhi.png"></div> -->
             <!-- 设置图标 -->
-            <div class="mine-up"><van-icon name="setting-o" size="1.5rem" /></div>
+            <div class="mine-up"><van-icon name="setting-o" size="1.5rem" @click="$router.push('mine/settings')" /></div>
             <!-- 消息图标 -->
             <div class="mine-chat"><van-icon name="chat-o" size="1.5rem" /></div>
             <div class="mine-desc">
                 <div class="mine-portrait" @click="$router.push('/personal/details')"><img src="../../assets/img/personal/touxiang.png"></div>
-                <div class="mine-text" @click="$router.push('/login')">XYshop-001 <p style="margin-top:10px">手机号:请验证手机</p></div>
+                <div class="mine-text" @click="$router.push('mine/enroll')">XYshop-001 <p style="margin-top:10px">手机号:请验证手机</p></div>
             </div>
         </div>
         <!--展示content-->
@@ -25,12 +25,12 @@
                 </van-grid>
             </div>
             <div class="mine-essential">
-                <van-cell title="我的优惠券" is-link/>
-                <van-cell title="商家服务" is-link  to="home"/>
-                <van-cell title="我的账单" is-link/>
-                <van-cell title="联系我们" is-link/>
-                <van-cell title="关于我们" is-link/>
-            </div>
+                <van-cell icon="gold-coin-o" title="我的优惠券" is-link/>
+                <van-cell icon="shop-o" title="商家服务" is-link  to="home"/>
+                <van-cell icon="balance-list-o" title="我的账单" is-link/>
+                <van-cell icon="chat-o" title="联系我们" is-link to="mine/about"/>
+                <van-cell icon="info-o" title="关于我们" is-link to="mine/concerning"/>
+            </div> 
         </div>
     </div>
 </template>
