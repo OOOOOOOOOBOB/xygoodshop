@@ -172,6 +172,22 @@ Vue.use(VueRouter)
     // which is lazy-loaded when the route is visited.
     component: () => import('@/views/mine/settings/Settings.vue')
   },
+  {
+    path: '/mine/settings/phone',
+    name: 'Phone',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('@/views/mine/settings/phone/Phone.vue')
+  },
+  {
+    path: '/mine/settings/userset',
+    name: 'Userset',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('@/views/mine/settings/userset/Userset.vue')
+  },
 ]
 
 const router = new VueRouter({

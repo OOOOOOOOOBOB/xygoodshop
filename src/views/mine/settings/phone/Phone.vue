@@ -2,13 +2,13 @@
 
     <!--登录页面-->
 
-    <div class="enroll">
+    <div class="phone">
         <van-nav-bar
                 title="手机号验证"
                 left-arrow
                 @click-left="onClickLeft"
         />
-        <div class="enroll-content">
+        <div class="phone-content">
             <van-form @submit="onSubmit">
                 <van-field
                         v-model="phoneNumber"
@@ -58,7 +58,7 @@
     Vue.use(NavBar).use(Form).use(Field).use(Button);
 
     export default {
-        name: "Enroll",
+        name: "Phone",
         data(){
             return {
                 phoneNumber: '',
@@ -72,7 +72,7 @@
         methods: {
 
             onClickLeft(){
-                this.$router.push('/mine')
+                this.$router.push('../settings')
                 Toast('返回')
             },
             
@@ -108,13 +108,10 @@
 </script>
 
 <style scoped lang="less">
-    .enroll{
+    .phone{
         position: absolute;
         height: 100%;
         background-color: #f5f5f5;
-        .enroll-content{
-            // margin: 50px 10px 20px 10px;
-        }
         .register-Forgot-password{
             margin: 20px;
             display: flex;

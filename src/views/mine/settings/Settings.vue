@@ -9,9 +9,10 @@
 
         <van-cell-group>
             <van-cell center value="头像修改" class="head-photo"  is-link />
-            
-            <van-cell center icon="manager" class="body-photo" value="客服QQ群：694507187" label="描述信息" />
-            <van-cell center icon="chat" value="客服微信：szizsh" label="描述信息" />
+            <van-cell center class="body-photo" value="昵称" to="/mine/settings/userset" is-link />
+            <van-cell center value="绑定手机号" is-link to="/mine/settings/phone"/>
+            <van-cell center value="性别" is-link />
+            <van-cell center value="生日" is-link />
         </van-cell-group>
     </div>
 </template>
@@ -19,9 +20,9 @@
 <script>
 
 import Vue from 'vue';
-import { NavBar,Cell, CellGroup,Toast,Divider  } from 'vant';
+import { NavBar,Cell, CellGroup,Toast,Divider,NumberKeyboard } from 'vant';
 
-Vue.use(Cell).use(NavBar).use(CellGroup).use(Toast).use(Divider );
+Vue.use(Cell).use(NavBar).use(CellGroup).use(Toast).use(Divider ).use(NumberKeyboard );
 
 export default {
     name: "About",

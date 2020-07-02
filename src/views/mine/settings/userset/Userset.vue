@@ -2,42 +2,21 @@
 
     <!--登录页面-->
 
-    <div class="enroll">
+    <div class="userset">
         <van-nav-bar
-                title="手机号验证"
+                title="用户名更改"
                 left-arrow
                 @click-left="onClickLeft"
         />
-        <div class="enroll-content">
+        <div class="phone-content">
+            <div style="padding-left:4%;width:100%;backgroundColor:white;border-bottom:1px solid #f5f5f5;font-size:15px">用户名：</div>
             <van-form @submit="onSubmit">
+               
                 <van-field
-                        v-model="phoneNumber"
-                        name="phoneNumber"
-                        label="手机号码"
-                        placeholder="请输入手机号码"
-                        maxlength="11"
+                        v-model="username"
+                        name="username"
+                        placeholder="请输入用户名"
                         
-                />
-                
-                <van-field
-                        v-model="verify"
-                        type="password"
-                        name="verify"
-                        label="验证码"
-                        placeholder="请输入验证码"
-                >
-                <template #button>
-                        <van-button size="small" native-type="button" color="red" @click="smallBtnClick" v-if="isShowTime">获取验证码</van-button>
-                        <van-button size="small" native-type="button" color="blue" disabled v-else>{{count}}</van-button>
-                </template>
-                </van-field>
-
-                <van-field
-                        v-model="password"
-                        type="password"
-                        name="password"
-                        label="密码"
-                        placeholder="请输入密码"
                 />
                 <div style="margin: 16px;">
                     <van-button round block color="red" type="info" native-type="submit">
@@ -58,21 +37,17 @@
     Vue.use(NavBar).use(Form).use(Field).use(Button);
 
     export default {
-        name: "Enroll",
+        name: "Phone",
         data(){
             return {
-                phoneNumber: '',
-                verify: '',
-                password: '',
-                status: 200,
-                isShowTime: true,
+                username: '',
                 count: ''
             }
         },
         methods: {
 
             onClickLeft(){
-                this.$router.push('/mine')
+                this.$router.push('../settings')
                 Toast('返回')
             },
             
@@ -108,13 +83,11 @@
 </script>
 
 <style scoped lang="less">
-    .enroll{
+    .userset{
         position: absolute;
         height: 100%;
+        width: 100%;
         background-color: #f5f5f5;
-        .enroll-content{
-            // margin: 50px 10px 20px 10px;
-        }
         .register-Forgot-password{
             margin: 20px;
             display: flex;
