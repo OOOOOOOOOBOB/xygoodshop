@@ -5,11 +5,39 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
   const routes = [
+
   {
     path: '/',
     name: 'Home',
-    component: () => import('@/views/home/Home.vue')
+    component: () => import('@/views/firstPage/FirstPage.vue')
   },
+  {
+    path: '/first/page',
+    name: 'FirstPage',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('@/views/firstPage/FirstPage.vue')
+  },
+
+  {
+    path: '/store/details',
+    name: 'StoreDetails',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('@/views/storeDetails/StoreDetails.vue')
+  },
+
+  {
+    path: '/store/recommend',
+    name: 'StoreRecommend',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('@/views/storeRecommend/StoreRecommend.vue')
+  },
+
   {
     path: '/home',
     name: 'Home',
@@ -111,6 +139,7 @@ Vue.use(VueRouter)
     // which is lazy-loaded when the route is visited.
     component: () => import('@/views/order/Order.vue')
   },
+
 ]
 
 const router = new VueRouter({
