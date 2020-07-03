@@ -9,7 +9,14 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
+<<<<<<< HEAD
     component: () => import('@/views/firstPage/FirstPage.vue')
+=======
+    meta:{
+      TabBarShow: true,
+    },
+    component: () => import('@/views/home/Home.vue')
+>>>>>>> 4e0d84d5568cb5e01520956e8ad49666207ab55f
   },
   {
     path: '/first/page',
@@ -41,11 +48,17 @@ Vue.use(VueRouter)
   {
     path: '/home',
     name: 'Home',
+    meta:{
+      TabBarShow: true,
+    },
     component: () => import('@/views/home/Home.vue')
   },
   {
     path: '/category',
     name: 'Category',
+    meta:{
+      TabBarShow: true,
+    },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -54,6 +67,9 @@ Vue.use(VueRouter)
   {
     path: '/personal',
     name: 'Personal',
+    meta:{
+      TabBarShow: true,
+    },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -62,6 +78,9 @@ Vue.use(VueRouter)
   {
     path: '/signed',
     name: 'Signed',
+    meta:{
+      TabBarShow: true,
+    },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -105,11 +124,17 @@ Vue.use(VueRouter)
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
+    meta:{
+      TabBarShow: false,
+    },
     component: () => import('@/views/details/Details.vue')
   },
   {
     path: '/cart',
     name: 'Cart',
+    meta:{
+      TabBarShow: true,
+    },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -139,7 +164,66 @@ Vue.use(VueRouter)
     // which is lazy-loaded when the route is visited.
     component: () => import('@/views/order/Order.vue')
   },
+<<<<<<< HEAD
 
+=======
+  {
+    path: '/mine',
+    name: 'Mine',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('@/views/mine/Mine.vue')
+  },
+  {
+    path: '/mine/enroll',
+    name: 'Enroll',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('@/views/mine/enroll/Enroll.vue')
+  },
+  {
+    path: '/mine/about',
+    name: 'About',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('@/views/mine/about/About.vue')
+  },
+  {
+    path: '/mine/concerning',
+    name: 'Concerning',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('@/views/mine/concerning/Concerning.vue')
+  },
+  {
+    path: '/mine/settings',
+    name: 'Settings',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('@/views/mine/settings/Settings.vue')
+  },
+  {
+    path: '/mine/settings/phone',
+    name: 'Phone',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('@/views/mine/settings/phone/Phone.vue')
+  },
+  {
+    path: '/mine/settings/userset',
+    name: 'Userset',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('@/views/mine/settings/userset/Userset.vue')
+  },
+>>>>>>> 4e0d84d5568cb5e01520956e8ad49666207ab55f
 ]
 
 const router = new VueRouter({
