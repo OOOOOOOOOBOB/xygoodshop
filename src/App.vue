@@ -37,4 +37,7 @@ body{
   padding: 0;
   //overflow-y: hidden;
 }
+body::-webkit-scrollbar{
+  display: none;
+}
 </style>

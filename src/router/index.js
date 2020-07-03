@@ -5,14 +5,46 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
   const routes = [
+
   {
     path: '/',
     name: 'Home',
+<<<<<<< HEAD
+    component: () => import('@/views/firstPage/FirstPage.vue')
+=======
     meta:{
       TabBarShow: true,
     },
     component: () => import('@/views/home/Home.vue')
+>>>>>>> 4e0d84d5568cb5e01520956e8ad49666207ab55f
   },
+  {
+    path: '/first/page',
+    name: 'FirstPage',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('@/views/firstPage/FirstPage.vue')
+  },
+
+  {
+    path: '/store/details',
+    name: 'StoreDetails',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('@/views/storeDetails/StoreDetails.vue')
+  },
+
+  {
+    path: '/store/recommend',
+    name: 'StoreRecommend',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('@/views/storeRecommend/StoreRecommend.vue')
+  },
+
   {
     path: '/home',
     name: 'Home',
@@ -132,6 +164,9 @@ Vue.use(VueRouter)
     // which is lazy-loaded when the route is visited.
     component: () => import('@/views/order/Order.vue')
   },
+<<<<<<< HEAD
+
+=======
   {
     path: '/mine',
     name: 'Mine',
@@ -188,6 +223,7 @@ Vue.use(VueRouter)
     // which is lazy-loaded when the route is visited.
     component: () => import('@/views/mine/settings/userset/Userset.vue')
   },
+>>>>>>> 4e0d84d5568cb5e01520956e8ad49666207ab55f
 ]
 
 const router = new VueRouter({
