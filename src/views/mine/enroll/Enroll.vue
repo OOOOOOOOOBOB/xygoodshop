@@ -11,21 +11,39 @@
         <div class="enroll-content">
             <van-form @submit="onSubmit">
                 <van-field
-                        v-model="phoneNumber"
+                        type="tel"
                         name="phoneNumber"
                         label="手机号码"
                         placeholder="请输入手机号码"
-                        maxlength="11"
-                        
+                        readonly
+                        clickable
+                        :value="phoneNumber"
+                        :focused="show"
+                        @focus="show = true"
                 />
-                
+                <van-number-keyboard
+                        v-model="phoneNumber"
+                        :show="show"
+                        maxlength="11"
+                        @blur="show = false"
+                />
                 <van-field
                         v-model="verify"
                         type="password"
                         name="verify"
                         label="验证码"
+                        maxlength="6"
                         placeholder="请输入验证码"
+                        :value="verify"
+                        :focused="show"
+                        @focus="show = true"
                 >
+                <van-number-keyboard
+                        v-model="verify"
+                        :show="show"
+                        maxlength="6"
+                        @blur="show = false"
+                />
                 <template #button>
                         <van-button size="small" native-type="button" color="red" @click="smallBtnClick" v-if="isShowTime">获取验证码</van-button>
                         <van-button size="small" native-type="button" color="blue" disabled v-else>{{count}}</van-button>
@@ -38,6 +56,15 @@
                         name="password"
                         label="密码"
                         placeholder="请输入密码"
+                        :value="password"
+                        :focused="show"
+                        @focus="show = true"
+                />
+                <van-number-keyboard
+                        v-model="password"
+                        :show="show"
+                        maxlength="11"
+                        @blur="show = false"
                 />
                 <div style="margin: 16px;">
                     <van-button round block color="red" type="info" native-type="submit">
@@ -52,10 +79,10 @@
 
 <script>
     import Vue from 'vue';
-    import { NavBar , Form, Field, Button } from 'vant';
+    import { NavBar , Form, Field, Button,NumberKeyboard,PasswordInput  } from 'vant';
     import { Toast } from 'vant';
 
-    Vue.use(NavBar).use(Form).use(Field).use(Button);
+    Vue.use(NavBar).use(Form).use(Field).use(Button).use(NumberKeyboard).use(PasswordInput);
 
     export default {
         name: "Enroll",
@@ -66,7 +93,9 @@
                 password: '',
                 status: 200,
                 isShowTime: true,
-                count: ''
+                count: '',
+                show: false,
+                value: '',
             }
         },
         methods: {
@@ -111,6 +140,7 @@
     .enroll{
         position: absolute;
         height: 100%;
+        width: 100%;
         background-color: #f5f5f5;
         .enroll-content{
             // margin: 50px 10px 20px 10px;

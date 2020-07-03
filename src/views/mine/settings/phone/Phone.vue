@@ -52,7 +52,7 @@
 
 <script>
     import Vue from 'vue';
-    import { NavBar , Form, Field, Button } from 'vant';
+    import { NavBar , Form, Field, Button, } from 'vant';
     import { Toast } from 'vant';
 
     Vue.use(NavBar).use(Form).use(Field).use(Button);

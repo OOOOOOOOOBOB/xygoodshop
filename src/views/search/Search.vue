@@ -42,9 +42,9 @@
 
 <script>
     import Vue from 'vue'
-    import { Toast, Search} from 'vant';
+    import { Toast, Search,NumberKeyboard } from 'vant';
 
-    Vue.use(Toast).use(Search)
+    Vue.use(Toast).use(Search).use(NumberKeyboard )
 
     export default {
         name: "Search",
