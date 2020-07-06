@@ -11,39 +11,21 @@
         <div class="enroll-content">
             <van-form @submit="onSubmit">
                 <van-field
-                        type="tel"
+                        v-model="phoneNumber"
                         name="phoneNumber"
                         label="手机号码"
                         placeholder="请输入手机号码"
-                        readonly
-                        clickable
-                        :value="phoneNumber"
-                        :focused="show"
-                        @focus="show = true"
+                        maxlength="11"         
                 />
-                <van-number-keyboard
-                        v-model="phoneNumber"
-                        :show="show"
-                        maxlength="11"
-                        @blur="show = false"
-                />
+                
                 <van-field
                         v-model="verify"
                         type="password"
                         name="verify"
                         label="验证码"
-                        maxlength="6"
                         placeholder="请输入验证码"
-                        :value="verify"
-                        :focused="show"
-                        @focus="show = true"
+                        maxlength="6"   
                 >
-                <van-number-keyboard
-                        v-model="verify"
-                        :show="show"
-                        maxlength="6"
-                        @blur="show = false"
-                />
                 <template #button>
                         <van-button size="small" native-type="button" color="red" @click="smallBtnClick" v-if="isShowTime">获取验证码</van-button>
                         <van-button size="small" native-type="button" color="blue" disabled v-else>{{count}}</van-button>
@@ -56,15 +38,6 @@
                         name="password"
                         label="密码"
                         placeholder="请输入密码"
-                        :value="password"
-                        :focused="show"
-                        @focus="show = true"
-                />
-                <van-number-keyboard
-                        v-model="password"
-                        :show="show"
-                        maxlength="11"
-                        @blur="show = false"
                 />
                 <div style="margin: 16px;">
                     <van-button round block color="red" type="info" native-type="submit">

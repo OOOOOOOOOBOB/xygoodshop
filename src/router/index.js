@@ -9,14 +9,12 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
-<<<<<<< HEAD
-    component: () => import('@/views/firstPage/FirstPage.vue')
-=======
+
     meta:{
       TabBarShow: true,
     },
     component: () => import('@/views/home/Home.vue')
->>>>>>> 4e0d84d5568cb5e01520956e8ad49666207ab55f
+
   },
   {
     path: '/first/page',
@@ -164,9 +162,6 @@ Vue.use(VueRouter)
     // which is lazy-loaded when the route is visited.
     component: () => import('@/views/order/Order.vue')
   },
-<<<<<<< HEAD
-
-=======
   {
     path: '/mine',
     name: 'Mine',
@@ -223,7 +218,6 @@ Vue.use(VueRouter)
     // which is lazy-loaded when the route is visited.
     component: () => import('@/views/mine/settings/userset/Userset.vue')
   },
->>>>>>> 4e0d84d5568cb5e01520956e8ad49666207ab55f
 ]
 
 const router = new VueRouter({

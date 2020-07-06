@@ -1,35 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@Jww-job 
-Please verify your email address to access all of GitHub’s features.
-An email containing verification instructions was sent to m18237157918@163.com.
-OOOOOOOOOBOB
-/
-xygoodshop
-1
-00
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-xygoodshop/src/views/cart/Cart.vue
-@Jww-job
-Jww-job cart
-Latest commit 01b7068 7 days ago
- History
- 1 contributor
-365 lines (350 sloc)  8.68 KB
-  
 <template>
   <!--购物车详情-->
   <div class="cart">
@@ -96,18 +64,37 @@ Latest commit 01b7068 7 days ago
     <div class="footer">
       <!-- <div class="primary" v-if="isShow">
         <van-checkbox   @click="checkAll(isShow)">全选</van-checkbox>
-      </div>
-      <div class="info">
-        <van-button type="info" @click="toggleAll">去结算</van-button>
+      </div> -->
+      <!-- <div class="primary" v-else>
+        <van-button type="primary" @click="checkAll(isShow)">取消</van-button>
       </div> -->
 
-      <van-submit-bar :price="3050" button-text="提交订单" @submit="toggleAll" style="bottom:6%;border-bottom:1px solid red">
-        <van-checkbox @click="checkAll(isShow)">全选</van-checkbox>
+      <!--                <div class="summation">{{'合计 : ' + item.total}}</div>-->
+      <!-- <div class="info">
+        <van-button type="info" @click="toggleAll">去结算</van-button>
+      </div> -->
+      <!-- <div class="paybox">
+        <div class="payleft"> -->
+          <!--选择全部商品-->
+          <!-- <span
+            class="check"
+            :class="{ checked: isCheckAll }"
+            @click="checkAll()"
+          ></span>
+          <b>全选</b>
+        </div>
+
+        <button>结算({{ allCount }})</button>
+        <span>总计：{{ allPrice }}</span>
+      </div> -->
+
+
+    <van-submit-bar :price="3050" button-text="提交订单" @submit="toDo" style="bottom:6%;border-bottom:1px solid red">
+        <van-checkbox v-model="checked" >全选</van-checkbox>
         <!-- <template #tip>
         你的收货地址不支持同城送, <span @click="onClickEditAddress">修改地址</span>
         </template> -->
-      </van-submit-bar>
-
+    </van-submit-bar>
     </div>
   </div>
 </template>
@@ -115,6 +102,7 @@ Latest commit 01b7068 7 days ago
 <script>
 import Vue from "vue";
 import {
+  SubmitBar ,
   NavBar,
   List,
   PullRefresh,
@@ -124,8 +112,9 @@ import {
   Stepper,
   SwipeCell,
   Dialog,
-  SubmitBar 
+  Toast,
 } from "vant";
+
 Vue.use(NavBar)
   .use(PullRefresh)
   .use(List)
@@ -137,18 +126,17 @@ Vue.use(NavBar)
   .use(Dialog)
   .use(SubmitBar);
 export default {
-  name: "Cart",
+  name: "Cnuh",
   data() {
     return {
-      list: [
-        {
-          shop_name: "小悠商城",
-          name: "小悠商城",
-          img: "https://img.yzcdn.cn/vant/apple-1.jpg",
-          price: 15,
-          total: 15,
-        },
-      ],
+      checked: true,
+      list: [],
+      selectId: [],//选中的商品id
+      totalMoney: 0, //总价
+      checkNum: 0, //选择的商品数量
+      checkAllFlag: false, //是否全选
+
+
       page: 0,
       finished: false,
       loading: false,
@@ -157,11 +145,47 @@ export default {
       value: 1,
       money: 15,
       values: 1,
-      isShow: false,
-      checked:true
+      isShow: true,
     };
   },
+
   methods: {
+    //点击结算
+    toDo(){
+      //如果没有选择结算的商品
+      if(this.checkNum <= 0){
+        Toast('请选择需要结算的物品');
+      }else{
+        //结算选中的商品
+        const isList = [];
+        for(let i in this.list){
+          if(this.list[i].checked){
+            isList.push(this.list[i])
+          }
+        }
+        console.log(isList);
+      }
+    },
+
+    // (单选)选择商品
+    selectGoods(item){
+			//判断是否未定义，如果没点击过按钮是没有注册的，则需要先注册checked属性
+			if(typeof item.checked =='undefined'){
+				this.$set(item,"checked",true);
+				this.checkNum ++;  //结算需要显示的数量
+			}else{
+				//  如果已经注册，则设置checked否(这里不能设置为false,因为当已经注册过之后再点击为flase，那么再点击一次则为true)
+				item.checked = !item.checked;
+				item.checked ? this.checkNum ++ : this.checkNum --;
+			}
+			// 求总价
+			this.totalPrice();
+			// 当所有的商品都选择的时候，自动默认为全选
+			this.list.length == this.checkNum ? this.checkAll(true) : this.checkAllFlag = false;
+		},
+
+
+
     //发送请求
     getData() {
       this.page += 1;
@@ -204,6 +228,7 @@ export default {
           total: 90,
         },
       ];
+
       this.list.push(...good_list);
       //console.log('list',this.list)
     },
@@ -235,6 +260,7 @@ export default {
           //Toast('上拉加载成功')
           this.loading = false;
         }, 3000);
+
         //当返回的长度
         if (this.list.length >= 20) {
           this.finished = true;
@@ -243,19 +269,23 @@ export default {
       //发送请求
       this.getData();
     },
+
     getValue(value) {
       // console.log('value11111',value)
       this.values = value;
     },
+
     //购物车增加
     plus(item) {
       console.log("item", item.price);
       //console.log('values',this.values)
+
       item.total += item.price;
     },
     //购物车减少
     minus(item) {
       console.log("item", item.price);
+
       item.total -= item.price;
     },
     beforeClose({ position, instance }) {
@@ -274,6 +304,7 @@ export default {
           break;
       }
     },
+
     onClickLeft() {
       this.$router.push("/details");
     },
@@ -377,15 +408,3 @@ export default {
   }
 }
 </style>
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About

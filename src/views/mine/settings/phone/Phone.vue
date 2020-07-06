@@ -15,8 +15,7 @@
                         name="phoneNumber"
                         label="手机号码"
                         placeholder="请输入手机号码"
-                        maxlength="11"
-                        
+                        maxlength="11"         
                 />
                 
                 <van-field
