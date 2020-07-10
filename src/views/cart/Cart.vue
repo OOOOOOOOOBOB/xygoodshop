@@ -66,6 +66,7 @@ Latest commit 01b7068 7 days ago
                 <van-swipe-cell :before-close="beforeClose">
                   <div class="goods-desc">
                     <van-checkbox
+                      
                       :name="index"
                       class="cart-list-item"
                     ></van-checkbox>
@@ -101,8 +102,12 @@ Latest commit 01b7068 7 days ago
         <van-button type="info" @click="toggleAll">去结算</van-button>
       </div> -->
 
-      <van-submit-bar :price="3050" button-text="提交订单" @submit="toggleAll" style="bottom:6%;border-bottom:1px solid red">
-        <van-checkbox @click="checkAll(isShow)">全选</van-checkbox>
+      <van-submit-bar 
+        :price="2222" 
+        button-text="提交订单" 
+        @submit="toggleAll" 
+        style="bottom:6%;border-bottom:1px solid red">
+        <van-checkbox @click="checkAll(isShow)" >全选</van-checkbox>
         <!-- <template #tip>
         你的收货地址不支持同城送, <span @click="onClickEditAddress">修改地址</span>
         </template> -->
@@ -141,7 +146,8 @@ export default {
   data() {
     return {
       list: [
-        {
+        { 
+          id: "1",
           shop_name: "小悠商城",
           name: "小悠商城",
           img: "https://img.yzcdn.cn/vant/apple-1.jpg",
@@ -164,7 +170,7 @@ export default {
   methods: {
     //发送请求
     getData() {
-      this.page += 1;
+      // this.page += 1;
       console.log("page", this.page);
       //发送ajax请求
       let good_list = [
@@ -278,6 +284,11 @@ export default {
       this.$router.push("/details");
     },
     onClickRight() {},
+    //单选事件
+    chooseChange(){
+
+    },
+
     checkAll(event) {
       console.log("event", event);
       //this.isShow = !this.isShow
@@ -320,6 +331,9 @@ export default {
       z-index: 10;
       overflow-y: scroll;
       .cart-list {
+        height: calc(100vh - 145px);
+        position: relative;
+        overflow-y: scroll;
         .cart-list-item {
           border-bottom: 0.5px solid #f5f5f5;
           background-color: white;
