@@ -1,6 +1,8 @@
 <template>
     <!--评论详情-->
     <div class="comments">
+
+
         <div class="comments-header">
             <van-nav-bar
                     title="评论详情"
@@ -13,7 +15,6 @@
                 <span class="title">{{item.title}}</span>
             </div>
         </div>
-
         <div class="comments-content">
             <div class="comments-list-item" v-for="(item,index) in goods[currentIndex]" :key="index">
                 <div class="img"><img :src="item.img"></div>

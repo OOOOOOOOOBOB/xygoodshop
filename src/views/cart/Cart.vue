@@ -1,35 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@Jww-job 
-Please verify your email address to access all of GitHub’s features.
-An email containing verification instructions was sent to m18237157918@163.com.
-OOOOOOOOOBOB
-/
-xygoodshop
-1
-00
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-xygoodshop/src/views/cart/Cart.vue
-@Jww-job
-Jww-job cart
-Latest commit 01b7068 7 days ago
- History
- 1 contributor
-365 lines (350 sloc)  8.68 KB
-  
 <template>
   <!--购物车详情-->
   <div class="cart">
@@ -95,13 +63,19 @@ Latest commit 01b7068 7 days ago
       </van-pull-refresh>
     </div>
     <div class="footer">
-      <!-- <div class="primary" v-if="isShow">
+      <div class="primary" v-if="isShow">
         <van-checkbox   @click="checkAll(isShow)">全选</van-checkbox>
       </div>
-      <div class="info">
-        <van-button type="info" @click="toggleAll">去结算</van-button>
+      <!-- <div class="primary" v-else>
+        <van-button type="primary" @click="checkAll(isShow)">取消</van-button>
       </div> -->
 
+      <!--                <div class="summation">{{'合计 : ' + item.total}}</div>-->
+      <div class="info">
+        <van-button type="info" @click="toggleAll">去结算</van-button>
+      </div>
+
+<!--<<<<<<< Updated upstream-->
       <van-submit-bar 
         :price="2222" 
         button-text="提交订单" 
@@ -112,7 +86,22 @@ Latest commit 01b7068 7 days ago
         你的收货地址不支持同城送, <span @click="onClickEditAddress">修改地址</span>
         </template> -->
       </van-submit-bar>
+<!--=======-->
+      <!-- <div class="paybox">
+        <div class="payleft"> -->
+          <!--选择全部商品-->
+          <!-- <span
+            class="check"
+            :class="{ checked: isCheckAll }"
+            @click="checkAll()"
+          ></span>
+          <b>全选</b>
+        </div>
+>>>>>>> Stashed changes
 
+        <button>结算({{ allCount }})</button>
+        <span>总计：{{ allPrice }}</span>
+      </div> -->
     </div>
   </div>
 </template>
@@ -129,8 +118,8 @@ import {
   Stepper,
   SwipeCell,
   Dialog,
-  SubmitBar 
 } from "vant";
+
 Vue.use(NavBar)
   .use(PullRefresh)
   .use(List)
@@ -139,8 +128,7 @@ Vue.use(NavBar)
   .use(Button)
   .use(Stepper)
   .use(SwipeCell)
-  .use(Dialog)
-  .use(SubmitBar);
+  .use(Dialog);
 export default {
   name: "Cart",
   data() {
@@ -163,10 +151,10 @@ export default {
       value: 1,
       money: 15,
       values: 1,
-      isShow: false,
-      checked:true
+      isShow: true,
     };
   },
+
   methods: {
     //发送请求
     getData() {
@@ -210,6 +198,7 @@ export default {
           total: 90,
         },
       ];
+
       this.list.push(...good_list);
       //console.log('list',this.list)
     },
@@ -241,6 +230,7 @@ export default {
           //Toast('上拉加载成功')
           this.loading = false;
         }, 3000);
+
         //当返回的长度
         if (this.list.length >= 20) {
           this.finished = true;
@@ -249,19 +239,23 @@ export default {
       //发送请求
       this.getData();
     },
+
     getValue(value) {
       // console.log('value11111',value)
       this.values = value;
     },
+
     //购物车增加
     plus(item) {
       console.log("item", item.price);
       //console.log('values',this.values)
+
       item.total += item.price;
     },
     //购物车减少
     minus(item) {
       console.log("item", item.price);
+
       item.total -= item.price;
     },
     beforeClose({ position, instance }) {
@@ -280,6 +274,7 @@ export default {
           break;
       }
     },
+
     onClickLeft() {
       this.$router.push("/details");
     },
@@ -391,15 +386,3 @@ export default {
   }
 }
 </style>
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About

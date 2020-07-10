@@ -8,13 +8,8 @@ Vue.use(VueRouter)
 
   {
     path: '/',
-    name: 'Home',
-
-    meta:{
-      TabBarShow: true,
-    },
-    component: () => import('@/views/home/Home.vue')
-
+    name: 'firstPage',
+    component: () => import('@/views/firstPage/FirstPage.vue')
   },
   {
     path: '/first/page',
@@ -41,6 +36,42 @@ Vue.use(VueRouter)
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import('@/views/storeRecommend/StoreRecommend.vue')
+  },
+
+  {
+    path: '/consumer',
+    name: 'Consumer',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('@/views/firstPage/consumer/Consumer.vue')
+  },
+
+  {
+    path: '/coupon',
+    name: 'Coupon',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('@/views/firstPage/coupon/Coupon.vue')
+  },
+
+  {
+    path: '/bill',
+    name: 'Bill',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('@/views/firstPage/bill/Bill.vue')
+  },
+
+  {
+    path: '/pay',
+    name: 'Pay',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('@/views/pay/Pay.vue')
   },
 
   {
@@ -76,9 +107,6 @@ Vue.use(VueRouter)
   {
     path: '/signed',
     name: 'Signed',
-    meta:{
-      TabBarShow: true,
-    },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.

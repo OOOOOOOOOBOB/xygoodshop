@@ -2,13 +2,13 @@
   <div id="app">
     <router-view/>
     <div class="home-buttom" v-show="$route.meta.TabBarShow">
-            <van-tabbar v-model="active">
-                <van-tabbar-item icon="wap-home-o" to="../home">首页</van-tabbar-item>
-                <van-tabbar-item icon="comment-o" to="../category">分类</van-tabbar-item>
-                <van-tabbar-item icon="cart-o" to="../cart">购物车</van-tabbar-item>
-                <van-tabbar-item icon="manager-o" to="../personal">我的</van-tabbar-item>
-            </van-tabbar>
-        </div>
+        <van-tabbar v-model="active">
+            <van-tabbar-item icon="wap-home-o" to="../home">首页</van-tabbar-item>
+            <van-tabbar-item icon="comment-o" to="../category">分类</van-tabbar-item>
+            <van-tabbar-item icon="cart-o" to="../cart">购物车</van-tabbar-item>
+            <van-tabbar-item icon="manager-o" to="../personal">我的</van-tabbar-item>
+        </van-tabbar>
+    </div>
   </div>
 </template>
 
@@ -23,7 +23,12 @@
       return {
         active: 0,
       }
-    }
+    },
+      methods: {
+        get(){
+            this.$toast('1212')
+        }
+      }
   }
 
 </script>

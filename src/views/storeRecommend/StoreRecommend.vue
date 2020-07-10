@@ -1,7 +1,9 @@
 <template>
+
     <div class="store-recommend">
+
         <headers class="store-recommend-headers">
-            <img class="sweep" src="../../assets/img/firstpage/back.png" slot="left"
+            <img class="back" src="../../assets/img/firstpage/back.png" slot="left"
                  @click="$router.push('/first/page')">
             <input slot="center" class="input" placeholder="搜索商家" v-model="value">
             <div slot="right" class="title" @click="searchClick">搜索</div>
@@ -17,12 +19,15 @@
         </scroll>
 
     </div>
+
 </template>
 
 <script>
+
     import Headers from "@/components/headers/Headers";
     import StoreList from "@/components/common/StoreList";
     import Scroll from "@/components/scroll/Scroll";
+
     export default {
         name: "StoreRecommend",
         components: {
@@ -141,7 +146,7 @@
 
                     this.$refs.scroll.closeOnLoad()
 
-                },2000)
+                },100)
 
                 if (this.list.length > 20){
 
@@ -175,9 +180,9 @@
             top: 0;
             width: 100%;
             height: 40px;
-            background-color: gold;
+            background-color: #333333;
             z-index: 100;
-            .sweep{
+            .back{
                 margin: auto;
                 width: 25px;
             }

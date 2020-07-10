@@ -15,7 +15,8 @@
                         name="phoneNumber"
                         label="手机号码"
                         placeholder="请输入手机号码"
-                        maxlength="11"         
+                        maxlength="11"
+                        
                 />
                 
                 <van-field
@@ -24,7 +25,6 @@
                         name="verify"
                         label="验证码"
                         placeholder="请输入验证码"
-                        maxlength="6"   
                 >
                 <template #button>
                         <van-button size="small" native-type="button" color="red" @click="smallBtnClick" v-if="isShowTime">获取验证码</van-button>
@@ -52,10 +52,10 @@
 
 <script>
     import Vue from 'vue';
-    import { NavBar , Form, Field, Button,NumberKeyboard,PasswordInput  } from 'vant';
+    import { NavBar , Form, Field, Button } from 'vant';
     import { Toast } from 'vant';
 
-    Vue.use(NavBar).use(Form).use(Field).use(Button).use(NumberKeyboard).use(PasswordInput);
+    Vue.use(NavBar).use(Form).use(Field).use(Button);
 
     export default {
         name: "Enroll",
@@ -66,9 +66,7 @@
                 password: '',
                 status: 200,
                 isShowTime: true,
-                count: '',
-                show: false,
-                value: '',
+                count: ''
             }
         },
         methods: {
@@ -113,7 +111,6 @@
     .enroll{
         position: absolute;
         height: 100%;
-        width: 100%;
         background-color: #f5f5f5;
         .enroll-content{
             // margin: 50px 10px 20px 10px;

@@ -227,7 +227,9 @@
         .details-content{
             position: relative;
             top: 50px;
+
             height: calc(100vh - 108px);
+
             overflow-y: scroll;
             .goods-img-list{
                 width: 100%;

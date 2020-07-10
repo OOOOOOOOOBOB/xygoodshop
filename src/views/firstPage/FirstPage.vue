@@ -5,8 +5,11 @@
         <headers class="first-page-header">
 
             <img class="sweep" src="../../assets/img/firstpage/Sweep.png" slot="left">
-            <div slot="center" class="search"><span class="text">搜索商家</span></div>
+
+            <div slot="center" class="search" @click="$router.push('/store/recommend')"><span class="text">搜索商家</span></div>
+
         </headers>
+
         <scroll class="first-scroll"
                 @pullUp="pullUp"
                 @refreshing="refreshing"
@@ -14,7 +17,7 @@
             <div class="content">
                 <!--领券导航-->
                 <div class="nav-list">
-                    <div class="nav-item" v-for="(item,index) in items" :key="index">
+                    <div class="nav-item" v-for="(item,index) in items" :key="index" @click="navClick(index)">
                         <div class="img"><img :src="item.icon"></div>
                         <div class="name">{{item.name}}</div>
                     </div>
@@ -42,7 +45,7 @@
                 </div>
                 <!--签到-->
                 <div class="sign-in">
-                    <div class="sign-in-img"><img src="../../assets/img/firstpage/signin.png"></div>
+                    <div class="sign-in-img" @click="$router.push('/signed')"><img src="../../assets/img/firstpage/signin.png"></div>
                 </div>
                 <!--为你推荐-->
                 <div class="recommend-list">
@@ -89,15 +92,15 @@
                     },
                     {
                         icon: require('../../assets/img/firstpage/youhuiquan.png'),
-                        name: '优惠券'
+                        name: '消费券'
                     },
                     {
                         icon: require('../../assets/img/firstpage/youhuiquan.png'),
-                        name: '优惠券'
+                        name: '我的账单'
                     },
                     {
                         icon: require('../../assets/img/firstpage/youhuiquan.png'),
-                        name: '优惠券'
+                        name: '商家入驻'
                     },
                 ],
                 bar_list: [
@@ -107,31 +110,31 @@
                     },
                     {
                         icon: require('../../assets/img/firstpage/fruit.png'),
-                        name: '便利店'
+                        name: '水果店'
                     },
                     {
                         icon: require('../../assets/img/firstpage/shop.png'),
-                        name: '便利店'
+                        name: '生鲜店'
                     },
                     {
                         icon: require('../../assets/img/firstpage/fruit.png'),
-                        name: '便利店'
+                        name: '停车场'
                     },
                     {
                         icon: require('../../assets/img/firstpage/shop.png'),
-                        name: '便利店'
+                        name: '加油站'
                     },
                     {
                         icon: require('../../assets/img/firstpage/fruit.png'),
-                        name: '便利店'
+                        name: '银行'
                     },
                     {
                         icon: require('../../assets/img/firstpage/shop.png'),
-                        name: '便利店'
+                        name: '超市'
                     },
                     {
                         icon: require('../../assets/img/firstpage/fruit.png'),
-                        name: '便利店'
+                        name: '宾馆'
                     },
                 ],
                 broadcast_list: [
@@ -258,9 +261,12 @@
 
                 setTimeout(() => {
 
+
+
                     this.$refs.scroll.closeOnLoad()
 
                 },2000)
+                this.$toast('12212')
 
                 if (this.list.length > 20){
 
@@ -279,6 +285,24 @@
 
                 },2000)
             },
+
+
+            //nav跳转
+            navClick(index){
+
+                if (index === 0){
+                    this.$router.push('/consumer')
+                }
+                if (index === 1){
+                    this.$router.push('/coupon')
+                }
+                if (index === 2){
+                    this.$router.push('/bill')
+                }
+
+            },
+
+
             Tmap() {
 
                 window.addEventListener('message', function(event) {
@@ -300,6 +324,7 @@
 
 <style scoped lang="less">
     .first-page{
+
         background-color: #f5f5f5;
         .first-page-header{
             position: fixed;
@@ -307,7 +332,7 @@
             width: 100%;
             left: 0;
             top: 0;
-            height: 45px;
+            height: 40px;
             background-color: #FF3709;
             z-index: 100;
             .sweep{
@@ -437,7 +462,7 @@
         }
         .first-scroll{
             position: absolute;
-            top: 46px;
+            top: 41px;
             bottom: 50px;
             overflow: hidden;
             left: 0;

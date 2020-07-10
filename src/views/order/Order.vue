@@ -11,45 +11,44 @@
                 @click-right="onClickRight"
         />
         </div>
-        <div class="add-ress-list">
-            <van-address-list
-                    v-model="chosenAddressId"
-                    :list="list"
-                    default-tag-text="默认"
-                    @add="onAdd"
-                    @edit="onEdit"
-            />
-        </div>
-        <div class="order-content">
-            <div class="order-list">
-                <div class="order-item" v-for="(item, index) in goods" :key="index">
-                    <div class="name">121221</div>
-                    <div class="item-content">
-                        <div class="img"><img src="../../assets/img/personal/bg.jpg"></div>
-                        <div class="desc">2121221</div>
-                    </div>
-                    <div class="receipt"><van-cell title="发票" is-link/></div>
-                    <div class="leave-word"><van-field v-model="text" label="买家留言" placeholder="请输入留言"/></div>
-                    <div class="freight">
-                        <span class="freight-name">运费</span>
-                        <span class="freight-price">￥121</span>
-                    </div>
-                </div>
-            </div>
-<!--            <van-address-list v-model="chosenAddressId" :list="list" default-tag-text="默认"/>-->
-<!--            <van-address-edit-->
-<!--                    :area-list="areaList"-->
-<!--                    show-postal-->
-<!--                    show-delete-->
-<!--                    show-set-default-->
-<!--                    show-search-result-->
-<!--                    :search-result="searchResult"-->
-<!--                    :area-columns-placeholder="['请选择', '请选择', '请选择']"-->
-<!--                    @save="onSave"-->
-<!--                    @delete="onDelete"-->
-<!--                    @change-detail="onChangeDetail"-->
-<!--                    @change-default="onChangeDefault"-->
+<!--        <div class="add-ress-list">-->
+<!--            <van-address-list-->
+<!--                    v-model="chosenAddressId"-->
+<!--                    :list="list"-->
+<!--                    default-tag-text="默认"-->
+<!--                    @add="onAdd"-->
+<!--                    @edit="onEdit"-->
 <!--            />-->
+<!--        </div>-->
+        <div class="order-content">
+<!--            <div class="order-list">-->
+<!--                <div class="order-item" v-for="(item, index) in goods" :key="index">-->
+<!--                    <div class="name">121221</div>-->
+<!--                    <div class="item-content">-->
+<!--                        <div class="img"><img src="../../assets/img/personal/bg.jpg"></div>-->
+<!--                        <div class="desc">2121221</div>-->
+<!--                    </div>-->
+<!--                    <div class="receipt"><van-cell title="发票" is-link/></div>-->
+<!--                    <div class="leave-word"><van-field v-model="text" label="买家留言" placeholder="请输入留言"/></div>-->
+<!--                    <div class="freight">-->
+<!--                        <span class="freight-name">运费</span>-->
+<!--                        <span class="freight-price">￥121</span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+
+<!--            <van-address-list v-model="chosenAddressId" :list="list" default-tag-text="默认"/>-->
+
+            <van-address-edit
+                    :area-list="areaList"
+                    :search-result="searchResult"
+                    :area-columns-placeholder="['请选择', '请选择', '请选择']"
+                    @save="onSave"
+                    @delete="onDelete"
+                    @change-detail="onChangeDetail"
+                    @change-default="onChangeDefault"
+            />
         </div>
 <!--        <div class="order-content" v-else>-->
 <!--        </div>-->
@@ -57,6 +56,7 @@
 </template>
 
 <script>
+
     import areaList from '../../utils/areaList'
     import Vue from 'vue';
     import { NavBar, AddressEdit, Toast, AddressList, Cell, CellGroup, Field } from 'vant';

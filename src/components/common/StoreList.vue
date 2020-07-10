@@ -4,7 +4,9 @@
         <div :class="isClass ? 'homePage' : 'subPage'"
              v-for="(item, index) in list"
              :key="index"
+
              @click="$router.push({path: '/store/details', query: {id: item.id}})">
+
             <div class="store-img"><img :src="item.img"></div>
             <div class="store-desc">
                 <div class="title-list">
@@ -16,9 +18,13 @@
                     <div class="address">{{item.address}}</div>
                     <div class="distance">{{item.distance + 'km'}}</div>
                 </div>
-                <div class="pay"><span class="text">去买单</span></div>
+                <div class="pay"
+                     @click.stop="$router.push({path: '/pay', query: {id: item.id}})">
+                    <span class="text">去买单</span>
+                </div>
             </div>
         </div>
+
     </div>
 </template>
 

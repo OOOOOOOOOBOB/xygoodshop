@@ -6,6 +6,7 @@
 
             <div slot="center" class="title">商家详情</div>
         </headers>
+
         <scroll class="store-scroll"
                 @pullUp="pullUp"
                 @refreshing="refreshing"
@@ -46,8 +47,8 @@
                             <span class="title">立即购买</span>
                         </div>
                         <div class="sign-in">
-                            <span class="every-sign-in">天天签到，领券优惠更多~</span>
-                            <span class="shop-go-pay">去买单</span>
+                            <span class="every-sign-in" @click="$router.push('/signed')">天天签到，领券优惠更多~</span>
+                            <span class="shop-go-pay" @click="$router.push('/pay')">去买单</span>
                         </div>
                         <div class="store-introduce-title">店铺介绍：</div>
                         <div class="store-introduce-details">
@@ -258,10 +259,9 @@
                 this.like_list.push(...list)
                 console.log('11')
 
+
                 setTimeout(() => {
-
                     this.$refs.scroll.closeOnLoad()
-
                 },2000)
 
                 if (this.like_list.length > 20){
@@ -301,7 +301,7 @@
             top: 0;
             width: 100%;
             height: 40px;
-            background-color: gold;
+            background-color: #333333;
             z-index: 100;
             .sweep{
                 margin: auto;

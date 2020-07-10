@@ -25,7 +25,20 @@
 
     export default {
         name: "Scroll",
-        props: {},
+        props: {
+            // loading: {
+            //     type: Boolean,
+            //     default: false
+            // },
+            // finished: {
+            //     type: Boolean,
+            //     default: false
+            // },
+            // refreshing: {
+            //     type: Boolean,
+            // }
+
+        },
         data() {
             return {
                 loading: false,
@@ -38,12 +51,15 @@
             //开启下拉刷新
             onRefresh(){
 
+                this.loading = false
+
                 this.$emit('refreshing')
 
             },
 
             //关闭下拉刷新
             closeRefresh(){
+
                 this.refreshing = false;
             },
 
@@ -69,7 +85,9 @@
 
             //数据为空的时候开启
             openFinished(){
+
                 this.finished = true;
+
             },
         }
 

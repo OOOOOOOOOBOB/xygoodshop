@@ -15,7 +15,8 @@
                         name="phoneNumber"
                         label="手机号码"
                         placeholder="请输入手机号码"
-                        maxlength="11"         
+                        maxlength="11"
+                        
                 />
                 
                 <van-field
@@ -51,7 +52,7 @@
 
 <script>
     import Vue from 'vue';
-    import { NavBar , Form, Field, Button, } from 'vant';
+    import { NavBar , Form, Field, Button } from 'vant';
     import { Toast } from 'vant';
 
     Vue.use(NavBar).use(Form).use(Field).use(Button);
