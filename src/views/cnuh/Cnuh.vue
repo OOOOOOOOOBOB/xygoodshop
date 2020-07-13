@@ -75,7 +75,9 @@ Latest commit 01b7068 7 days ago
                       <!--                                        <div class="price">{{money + '元'}}</div>-->
                       <van-stepper
                         class="stepper"
-
+                        @change="getValue"
+                        @plus="plus(item)"
+                        @minus="minus(item)"
                       />
                     </div>
                   </div>
@@ -98,7 +100,7 @@ Latest commit 01b7068 7 days ago
       </div> -->
 
       <van-submit-bar 
-        :price="Number(totalPrice)"
+        :price="totalPrice"
         button-text="提交订单" 
         @submit="toggleAll" 
         style="bottom:6%;border-bottom:1px solid red">
@@ -149,7 +151,7 @@ export default {
           img: "https://img.yzcdn.cn/vant/apple-1.jpg",
           price: 15,
           status: 1,
-          // total: 15,
+          total: 15,
         },
         { 
           id: "2",
@@ -159,6 +161,7 @@ export default {
           img: "https://img.yzcdn.cn/vant/apple-1.jpg",
           price: 20,
           status: 1,
+          total: 20,
         },
         { 
           id: "3",
@@ -168,6 +171,7 @@ export default {
           img: "https://img.yzcdn.cn/vant/apple-1.jpg",
           price: 30,
           status: 1,
+          total: 30,
         },
         { 
           id: "4",
@@ -177,6 +181,7 @@ export default {
           img: "https://img.yzcdn.cn/vant/apple-1.jpg",
           price: 40,
           status: 1,
+          total: 40,
         },
         { 
           id: "5",
@@ -186,6 +191,7 @@ export default {
           img: "https://img.yzcdn.cn/vant/apple-1.jpg",
           price: 50,
           status: 1,
+          total: 50,
         },{ 
           id: "5",
           num: 1,
@@ -194,6 +200,7 @@ export default {
           img: "https://img.yzcdn.cn/vant/apple-1.jpg",
           price: 50,
           status: 1,
+          total: 50,
         },{ 
           id: "6",
           num: 1,
@@ -202,6 +209,7 @@ export default {
           img: "https://img.yzcdn.cn/vant/apple-1.jpg",
           price: 60,
           status: 1,
+          total: 60,
         },{ 
           id: "7",
           num: 1,
@@ -210,6 +218,7 @@ export default {
           img: "https://img.yzcdn.cn/vant/apple-1.jpg",
           price: 70,
           status: 1,
+          total: 70,
         },
         
       ],
@@ -218,6 +227,8 @@ export default {
       loading: false,
       refreshing: false,
       result: [],
+      value: 1,
+      values: 1,
       checkedGoods: [],
       isShow: false,
       checked:true
@@ -261,23 +272,22 @@ export default {
       //发送请求
       this.getData();
     },
-    // getValue(value) {
+    getValue(value) {
       // console.log('value11111',value)
-      // this.values = value;
-    // },
+      this.values = value;
+    },
     //购物车增加
-    // plus(item) {
-      // console.log("item", item.price);
-      //console.log('values',this.values)
-      // item.price += item.price;
+    plus(item) {
+      console.log("item", item.price);
+      // console.log('values',this.values)
+      item.total += item.price;
       
-    // },
+    },
     //购物车减少
-    // minus(item) {
-    //   console.log("item", item.price);
-    //   item.price -= item.price;
-      
-    // },
+    minus(item) {
+      console.log("item", item.price);
+      item.total -= item.price;      
+    },
     beforeClose({ position, instance }) {
       switch (position) {
         case "left":
@@ -322,13 +332,13 @@ export default {
   computed: {
     //总价
     totalPrice(){
-      return this.list.reduce(
-        (total, item) => 
-          total+
-          (this.checkedGoods.indexOf(item.id) != -1
-          ? item.total * item.id
-          : 0 ),
-      )
+      let pr = 0;
+      for(let i = 0; i < this.list.length; i++){
+        pr += this.list[i].price * 100;
+      }
+      console.log(pr);
+      return pr;
+      
     }
   },
 };
