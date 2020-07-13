@@ -65,7 +65,7 @@ Latest commit 01b7068 7 days ago
                     <van-checkbox
                       :name="index"
                       class="cart-list-item"
-                      :disabled="!item.status"
+                      
                     ></van-checkbox>
                     <div class="img"><img :src="item.img" /></div>
                     <div class="desc">
@@ -310,7 +310,7 @@ export default {
     onClickRight() {},
     //单选事件
     chooseChange(){
-
+      
     },
 
     checkAll(event) {
@@ -334,7 +334,7 @@ export default {
     totalPrice(){
       let pr = 0;
       for(let i = 0; i < this.list.length; i++){
-        pr += this.list[i].price * 100;
+        pr += this.list[i].total * 100;
       }
       console.log(pr);
       return pr;
